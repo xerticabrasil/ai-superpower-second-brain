@@ -121,6 +121,7 @@ footer small a{text-decoration:underline}
  <div class="f"><label for="tel">Telefone <i>*</i></label><input id="tel" autocomplete="tel" name="entry.2090455827" type="tel" placeholder="+55 11 90000-0000" required></div>
  <div class="f"><label for="email">E-mail corporativo <i>*</i></label><input id="email" autocomplete="email" name="entry.414990634" type="email" placeholder="voce@organizacao.com.br" required></div>
  </div>
+ <input type="hidden" id="origem" name="entry.317773647" value="direto">
  <button class="btn" type="submit">Reservar minha vaga</button>
  <p class="legal">Ao se inscrever, você concorda em receber comunicações da Xertica sobre este evento, conforme a nossa <a href="https://www.xertica.ai/privacy-policy" target="_blank" rel="noopener">política de privacidade</a>.</p>
  </form>
@@ -166,6 +167,12 @@ DET='Workshop virtual da Xertica com Gemini Enterprise.\n\nLink de acesso: '+MEE
 E=encodeURIComponent;
 document.getElementById('calG').href='https://calendar.google.com/calendar/render?action=TEMPLATE&text='+E(EV)+'&dates=20261126T130000Z%2F20261126T141000Z&details='+E(DET)+'&location='+E(MEET)+'&ctz=America%2FSao_Paulo';
 document.getElementById('calO').href='https://outlook.office.com/calendar/0/deeplink/compose?path=%2Fcalendar%2Faction%2Fcompose&rru=addevent&subject='+E(EV)+'&startdt=2026-11-26T13%3A00%3A00Z&enddt=2026-11-26T14%3A10%3A00Z&body='+E(DET.replace(/\n/g,'<br>'))+'&location='+E(MEET);
+(function(){var k='ais_origem',q=new URLSearchParams(location.search),o='';
+var s=q.get('utm_source'),m=q.get('utm_medium'),c=q.get('utm_content');
+if(s){o=[s,m,c].filter(Boolean).join(' / ');}
+try{if(o){localStorage.setItem(k,o);}else{o=localStorage.getItem(k)||'';}}catch(e){}
+if(!o&&document.referrer&&document.referrer.indexOf(location.hostname)<0){try{o='site: '+new URL(document.referrer).hostname}catch(e){}}
+document.getElementById('origem').value=o||'direto';})();
 var FORM_URL='https://docs.google.com/forms/d/e/1FAIpQLSfayziBQmteFZg3F0yWXNjiuuzCLpdNMRDFFZHhggfMC57wKw/formResponse';
 document.querySelectorAll('a[href="#inscricao"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();document.getElementById('inscricao').scrollIntoView({behavior:'smooth'})})});
 document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var f=e.target,b=f.querySelector('button');b.disabled=true;b.textContent='Enviando...';
