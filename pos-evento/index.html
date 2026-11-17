@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI Superpowers Brasil · Guias pós-workshop</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#FDFCF8;--ink:#1A1916;--muted:#5C5A55;--line:#E6E2D8;--coral:#DE5B48;--mag:#C04FA6;--beige:#F1EBDB;--card:#FCFBF7;--teal:#1E9BB0;--green:#2E8B57;--yellow:#FAF338}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:1040px;margin:0 auto;padding:0 32px}
+a{color:inherit}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--ink);color:#fff;font-weight:700;border:1px solid var(--ink);border-radius:999px;cursor:pointer;font:inherit;font-weight:700;text-decoration:none;padding:14px 24px;font-size:15px}
+.btn:hover{opacity:.88}.btn:disabled{opacity:.6;cursor:wait}
+.btn.y{background:var(--yellow);color:var(--ink)}
+.btn.w{background:#fff;color:var(--ink)}
+.btn.t{background:var(--teal);border-color:var(--teal);color:#fff}
+nav{border-bottom:1px solid var(--line);background:var(--bg)}
+nav .wrap{display:flex;align-items:center;gap:20px;height:76px}
+.logos{display:flex;align-items:center;gap:18px}.logos img{height:26px;width:auto;display:block}.logos .sep{width:1px;height:26px;background:var(--line)}
+nav .who{margin-left:auto;font-size:13px;color:var(--muted);display:none}
+nav .who b{color:var(--ink)}
+/* gate */
+.gate{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;padding:56px 0 80px;align-items:center}
+.eyebrow{color:var(--coral);font-weight:700;font-size:14px;margin-bottom:10px}
+h1{font-size:52px;line-height:1.03;font-weight:800;letter-spacing:-2px;margin-bottom:20px}
+h1 em{font-style:normal;color:var(--coral)}
+.lead{font-size:17px;color:var(--muted);max-width:460px;margin-bottom:22px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:13px;font-weight:600;background:var(--beige);border-radius:999px;padding:7px 14px}
+.card{border:1px solid var(--line);border-radius:22px;padding:30px 28px;background:#fff}
+.card h2{font-size:22px;font-weight:700}
+.card h2:after{content:"";display:block;width:34px;height:3px;background:var(--mag);margin:8px 0 10px;border-radius:2px}
+.card p.sub{font-size:14px;color:var(--muted);margin-bottom:18px}
+label{display:block;font-size:13px;font-weight:600;margin:0 0 6px}
+label i{color:var(--coral);font-style:normal}
+.f{margin-bottom:14px}
+input{width:100%;font:inherit;font-size:15px;padding:12px 14px;border:1px solid #D9D5CB;border-radius:10px;background:#fff;color:var(--ink)}
+input:focus{outline:2px solid var(--mag);outline-offset:-1px}
+.card form .btn{width:100%;margin-top:6px;font-size:16px;padding:15px}
+.legal{text-align:center;font-size:12px;color:var(--muted);margin-top:12px}
+/* app */
+#app{display:none}
+.hello{padding:48px 0 8px}
+.hello h1{font-size:40px;letter-spacing:-1.4px;margin-bottom:10px}
+.hello p{font-size:17px;color:var(--muted);max-width:640px}
+.doors{display:grid;grid-template-columns:1fr 1fr;gap:20px;padding:30px 0 20px}
+.door{border:1px solid var(--line);border-radius:22px;background:#fff;padding:30px 28px 28px;display:flex;flex-direction:column;gap:12px;box-shadow:inset 0 6px 0 var(--teal);overflow:hidden}
+.door.m{box-shadow:inset 0 6px 0 var(--mag)}
+.door .tag{font-size:12px;font-weight:700;color:var(--teal)}
+.door.m .tag{color:var(--mag)}
+.door h3{font-size:22px;line-height:1.2;font-weight:800;letter-spacing:-.4px}
+.door p{font-size:15px;color:var(--muted);flex:1}
+.door .btn{align-self:flex-start}
+.rec{display:flex;align-items:center;gap:16px;background:var(--beige);border-radius:18px;padding:18px 22px;margin:4px 0 0}
+.rec svg{flex:none;color:var(--mag)}
+.rec b{display:block;font-size:15px}.rec span{font-size:14px;color:var(--muted)}
+/* guide */
+#guia{padding:48px 0 20px;scroll-margin-top:70px}
+.kicker{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700;margin-bottom:10px}
+.kicker:before{content:"";width:10px;height:10px;background:var(--coral)}
+h2.big{font-size:34px;line-height:1.15;font-weight:800;letter-spacing:-1px;margin-bottom:12px}
+.intro{font-size:16px;color:var(--muted);max-width:720px;margin-bottom:26px}
+.tabs{position:sticky;top:0;z-index:5;background:var(--bg);display:flex;gap:8px;padding:12px 0;border-bottom:1px solid var(--line);margin-bottom:28px}
+.tab{font:inherit;font-size:15px;font-weight:700;border:1px solid var(--ink);background:#fff;border-radius:999px;padding:10px 20px;cursor:pointer}
+.tab[aria-selected=true]{background:var(--ink);color:#fff}
+.tab small{font-weight:500;opacity:.7;margin-left:6px}
+.pane{display:none}.pane.on{display:block}
+.pane h3{font-size:24px;font-weight:800;letter-spacing:-.4px;margin:6px 0 10px}
+.pane h4{font-size:18px;font-weight:700;margin:28px 0 10px}
+.pane p{font-size:16px;margin-bottom:12px;max-width:760px}
+.pane ul,.pane ol{margin:0 0 14px 22px;max-width:760px}
+.pane li{font-size:16px;margin-bottom:8px}
+.step{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--line)}
+.step .n{width:40px;height:40px;border-radius:50%;background:var(--mag);color:#fff;font-weight:800;display:grid;place-items:center}
+.step h5{font-size:17px;font-weight:700;margin-bottom:6px}
+.step p,.step li{font-size:15.5px}
+.box{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--teal);border-radius:14px;padding:18px 20px;margin:14px 0 18px;max-width:800px}
+.box.m{border-left-color:var(--mag)}
+.box b.t{display:block;margin-bottom:6px}
+.prompt{position:relative;background:#1F1E1C;color:#EDE9DE;border-radius:16px;padding:22px 22px 20px;margin:12px 0 18px;max-width:800px;font-size:14.5px;line-height:1.62;white-space:pre-wrap}
+.prompt .copy{position:absolute;top:12px;right:12px;font:inherit;font-size:13px;font-weight:700;background:var(--yellow);color:var(--ink);border:0;border-radius:999px;padding:7px 14px;cursor:pointer}
+.prompt .lbl{display:block;font-size:12px;font-weight:700;color:#BDBAB2;margin-bottom:10px;letter-spacing:.3px}
+.docs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:8px 0 18px}
+.doc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px}
+.doc .no{font-size:12px;font-weight:700;color:var(--mag)}
+.doc h5{font-size:17px;font-weight:800;margin:4px 0 8px}
+.doc ul{margin:0 0 0 18px}.doc li{font-size:14px;margin-bottom:6px;color:var(--muted)}
+.doc li b{color:var(--ink)}
+.gold{background:var(--yellow);border-radius:14px;padding:14px 18px;font-size:15px;max-width:800px;margin:10px 0 16px}
+.links a{display:block;font-weight:600;color:var(--teal);margin-bottom:8px}
+/* contact */
+.contact{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;background:var(--mag);color:#fff;border-radius:22px;padding:32px 36px;margin:36px 0 20px}
+.contact h3{color:#fff;font-size:28px;line-height:1.15;margin:0 0 8px;letter-spacing:-.6px}
+.contact p{color:#FCE9F7;font-size:15px;margin:0 0 18px}
+.contact .acts{display:flex;flex-wrap:wrap;gap:10px}
+.contact .acts .btn{padding:13px 20px}
+.person{text-align:center}
+.person img{width:118px;height:118px;border-radius:50%;object-fit:cover;border:4px solid #fff;display:block;margin:0 auto 10px}
+.person b{display:block;font-size:16px}.person span{display:block;font-size:13px;color:#FCE9F7}
+.person a{color:#fff;font-weight:600;font-size:13px;text-decoration:none}
+footer{background:#1F1E1C;color:#fff;padding:30px 0;margin-top:48px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+footer .logos img{height:22px}footer .logos .sep{background:#555}
+footer small{color:#BDBAB2;font-size:13px}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:14px;font-weight:600;padding:10px 18px;border-radius:999px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+@media(max-width:900px){.gate{grid-template-columns:1fr;gap:32px;padding-top:36px}.doors{grid-template-columns:1fr}.docs{grid-template-columns:1fr}.contact{grid-template-columns:1fr}.person{order:-1}h1{font-size:40px}}
+@media(max-width:560px){.wrap{padding:0 18px}h1{font-size:34px}.hello h1{font-size:30px}h2.big{font-size:27px}.logos img{height:20px}.tab{padding:9px 14px;font-size:14px}.tab small{display:none}.contact{padding:26px 22px}.contact h3{font-size:23px}.prompt{padding-top:48px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><div class="logos"><img src="https://email-editor-production.s3.amazonaws.com/images/575975/Logo_XERTICA_Black%20%281%29.png" alt="Xertica.ai"><div class="sep"></div><img src="https://email-editor-production.s3.amazonaws.com/images/575975/GC_Logo_OneColor_rgb.png" alt="Google Cloud"></div><div class="who" id="who">Olá, <b id="whoName"></b></div></div></nav>
+
+<!-- ACESSO -->
+<div class="wrap gate" id="gate">
+ <div>
+  <div class="eyebrow">Gemini Enterprise · Materiais do workshop</div>
+  <h1>AI Superpowers: <em>Ative</em> seu segundo cérebro</h1>
+  <p class="lead">Informe seus dados corporativos para acessar os guias e as informações importantes do Gemini Enterprise.</p>
+  <div class="chips"><span class="chip">Guia Second Brain</span><span class="chip">Guia Chief of Staff</span><span class="chip">White paper</span></div>
+ </div>
+ <div class="card">
+  <form id="f">
+   <h2>Acesse os materiais</h2>
+   <p class="sub">Leva menos de 1 minuto. Você só precisa fazer isso uma vez neste navegador.</p>
+   <div class="f"><label for="nome">Nome completo <i>*</i></label><input id="nome" autocomplete="name" placeholder="Seu nome completo" required></div>
+   <div class="f"><label for="email">E-mail corporativo <i>*</i></label><input id="email" type="email" autocomplete="email" placeholder="voce@organizacao.com.br" required></div>
+   <button class="btn" type="submit">Acessar os guias &nbsp;→</button>
+   <p class="legal">Ao continuar, você concorda em receber comunicações da Xertica sobre Gemini Enterprise, conforme a nossa <a href="https://www.xertica.ai/privacy-policy" target="_blank" rel="noopener">política de privacidade</a>.</p>
+  </form>
+ </div>
+</div>
+
+<!-- CONTEÚDO -->
+<div id="app">
+ <div class="wrap">
+  <section class="hello">
+   <div class="eyebrow">Materiais do workshop · 26/11</div>
+   <h1 id="helloT">Tudo pronto para você começar</h1>
+   <p>Escolha por onde começar. Você pode voltar a esta página quando quiser: o acesso fica salvo neste navegador.</p>
+  </section>
+
+  <section class="doors">
+   <div class="door">
+    <div class="tag">Para entender o Gemini Enterprise</div>
+    <h3>White paper: ecossistema de agentes com Gemini Enterprise</h3>
+    <p>Se você não usa o Google Workspace, quer mais informações sobre o Gemini Enterprise ou busca construir o seu ecossistema multiagente conectado aos sistemas que já tem.</p>
+    <a class="btn y" id="wpBtn" href="#" target="_blank" rel="noopener" data-acao="Porta: White paper (download)">Baixar o white paper &nbsp;→</a>
+   </div>
+   <div class="door m">
+    <div class="tag">Para colocar a mão na massa</div>
+    <h3>Guia passo a passo: Second Brain e Chief of Staff</h3>
+    <p>Construa o seu ecossistema multiagente no Gemini Enterprise: primeiro o seu Second Brain, depois o seu agente Chief of Staff, com os prompts prontos para copiar.</p>
+    <a class="btn" href="#guia" data-acao="Porta: Guia passo a passo">Abrir o guia &nbsp;→</a>
+   </div>
+  </section>
+  <div class="rec"><svg width="30" height="30" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><rect x="2.5" y="6" width="13" height="12" rx="2"/><path d="M15.5 10.5l6-3.5v10l-6-3.5"/></svg><div><b>Gravação do workshop</b><span id="recTxt">Disponível em breve nesta página.</span></div></div>
+
+  <section id="guia">
+   <div class="kicker">Guia passo a passo</div>
+   <h2 class="big">Construa o seu ecossistema multiagente</h2>
+   <p class="intro">O objetivo deste guia é ajudar você a criar uma ferramenta de IA profundamente personalizada, que multiplique a sua efetividade e produtividade. O seu ecossistema terá duas partes: um <b>Second Brain</b>, que reúne a sua identidade e o seu conhecimento, e um agente <b>Chief of Staff</b>, desenhado para operar como o seu braço direito estratégico.</p>
+
+   <div class="tabs" role="tablist">
+    <button class="tab" role="tab" aria-selected="true" data-tab="sb">Second Brain<small>Fase 1</small></button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="cos">Chief of Staff<small>Fase 2</small></button>
+   </div>
+
+   <!-- FASE 1 -->
+   <div class="pane on" id="p-sb" role="tabpanel">
+    <h3>Fase 1 · Construa o seu Second Brain</h3>
+    <p>O seu Second Brain é formado por documentos que reúnem a sua identidade, o seu estilo de trabalho, as suas crenças e os seus conhecimentos. Eles são a base para que o seu agente de IA pense e opere como você faria. É, essencialmente, "você dentro da IA".</p>
+
+    <div class="step"><div class="n">1</div><div><h5>Crie a pasta no Drive</h5><p>Crie uma pasta chamada <b>Second Brain</b> no seu Google Drive para guardar os documentos.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h5>Crie os seus 3 documentos pilares com o Gemini</h5><p>Abra um novo chat no <a href="https://gemini.google.com/app" target="_blank" rel="noopener">Gemini</a> e cole o prompt abaixo. Ele faz uma entrevista com você e gera os três documentos: <b>Quem sou eu?</b>, <b>Como eu sou?</b> e <b>No que eu acredito?</b></p>
+     <div class="prompt" id="pr-sb"><span class="lbl">Prompt · Entrevista do Second Brain</span><button class="copy" data-copy="pr-sb" data-acao="Copiou prompt: Second Brain">Copiar</button>Você é um entrevistador especialista em conhecer a fundo a identidade de uma pessoa. Você vai me entrevistar para construir o meu "Second Brain": 3 documentos de contexto pessoal que serão a base de conhecimento dos meus agentes de IA.
+
+Faça uma pergunta de cada vez e espere a minha resposta. Se eu responder algo vago, pergunte novamente pedindo exemplos concretos. Cubra três pilares, nesta ordem:
+
+1. Quem sou eu? — Dados pessoais, Funções profissionais, Contexto da organização, Informações relevantes, Duplo papel
+2. Como eu sou? — Estilo de trabalho, Processo de decisão, Preferências de comunicação, Atitude diante do risco
+3. No que eu acredito? — Valores fundamentais, Fontes de inspiração/conhecimento, Diferenciação (inclua também aquilo em que não acredito).
+
+Ao fechar cada pilar, consolide as respostas em um documento redigido em terceira pessoa e exporte-o como um Google Doc com o nome do pilar — um por pilar, 3 no total. Dentro de cada pilar, comece com perguntas pessoais e avance gradualmente para o profissional em [NOME DA ORGANIZAÇÃO]. Não invente nada que eu não tenha dito.</div>
+     <p style="font-size:14px;color:var(--muted)">Troque <b>[NOME DA ORGANIZAÇÃO]</b> pelo nome da sua empresa ou órgão. Este passo também pode ser feito no chatbot de IA da sua preferência.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h5>Organize os arquivos na pasta</h5><p>Guarde os três documentos na pasta Second Brain para dar contexto direto ao seu agente. O documento 3 continuará sendo atualizado sempre.</p></div></div>
+
+    <h4>O mínimo que o seu Second Brain deve ter</h4>
+    <div class="docs">
+     <div class="doc"><div class="no">Documento 1</div><h5>Quem sou eu?</h5><ul>
+      <li><b>Dados pessoais:</b> nome, formação, interesses.</li>
+      <li><b>Funções profissionais:</b> cargo atual e atribuições.</li>
+      <li><b>Contexto da organização:</b> uma breve descrição da sua empresa ou órgão, do seu ponto de vista.</li>
+      <li><b>Informações relevantes:</b> detalhes que influenciam as suas decisões ou interações.</li>
+      <li><b>Duplo papel:</b> se você tem mais de um papel (por exemplo, executivo e conselheiro de uma associação), o agente precisa aprender a separar essas informações.</li></ul></div>
+     <div class="doc"><div class="no">Documento 2</div><h5>Como eu sou?</h5><ul>
+      <li><b>Estilo de trabalho:</b> suas preferências e hábitos.</li>
+      <li><b>Processo de decisão:</b> como você decide (ex.: "decido com 60% da informação; prefiro agir a planejar 100%").</li>
+      <li><b>Preferências de comunicação:</b> como prefere receber e transmitir informações.</li>
+      <li><b>Atitude diante do risco:</b> se tende mais à ação ou à cautela.</li></ul></div>
+     <div class="doc"><div class="no">Documento 3</div><h5>No que eu acredito?</h5><ul>
+      <li><b>Valores fundamentais:</b> os princípios que guiam o seu trabalho e a sua vida.</li>
+      <li><b>Fontes de inspiração:</b> livros, artigos, white papers e podcasts que moldaram a sua forma de pensar.</li>
+      <li><b>Atualização constante:</b> a parte mais viva do documento, atualizada com novas leituras e reflexões.</li>
+      <li><b>Diferenciação:</b> também aquilo em que você não acredita, para que o agente entenda a sua posição completa.</li></ul></div>
+    </div>
+    <div class="box"><b class="t">Próximo passo</b>Com o Second Brain pronto, siga para a Fase 2 e crie o seu agente Chief of Staff no Gemini Enterprise. <a href="#guia" data-goto="cos" style="font-weight:700;color:var(--teal)">Ir para a Fase 2 →</a></div>
+    <div class="contact-slot"></div>
+   </div>
+
+   <!-- FASE 2 -->
+   <div class="pane" id="p-cos" role="tabpanel">
+    <h3>Fase 2 · Crie o seu agente Chief of Staff</h3>
+    <p>O agente Chief of Staff é o seu braço direito estratégico. O objetivo dele é multiplicar a sua efetividade e produtividade. Não é uma IA genérica: ele reflete o seu contexto, o seu estilo de trabalho e as suas crenças, porque usa o seu Second Brain.</p>
+
+    <div class="step"><div class="n">1</div><div><h5>Abra o Gemini Enterprise</h5><p>Acesse o Gemini Enterprise e selecione <b>+ Novo agente</b>.</p></div></div>
+    <div class="step"><div class="n">2</div><div><h5>Escolha como criar</h5><p>Crie o agente com um prompt do zero ou usando a função <b>Builder</b>, de acordo com o tempo de que você dispõe.</p></div></div>
+    <div class="step"><div class="n">3</div><div><h5>Desenhe o seu prompt</h5><p>Use esta estrutura como referência:</p>
+     <ul><li><b>Papel:</b> um assistente pessoal encarregado de organizar o seu dia ou a sua semana.</li>
+     <li><b>Contexto pessoal:</b> a instrução explícita de usar os seus documentos pilares (Second Brain) para entender quem você é e adotar o seu tom.</li>
+     <li><b>Regras de busca e limites:</b> priorizar as informações dos últimos 7 dias, buscar e-mails recebidos e enviados e sempre usar a data mais recente como fonte da verdade.</li>
+     <li><b>Resultado esperado:</b> uma lista de tarefas priorizada e rascunhos de e-mails de acompanhamento.</li></ul>
+     <div class="prompt" id="pr-cos"><span class="lbl">Prompt de exemplo · Chief of Staff</span><button class="copy" data-copy="pr-cos" data-acao="Copiou prompt: Chief of Staff">Copiar</button>Papel
+Você é um assistente pessoal altamente eficiente. O seu objetivo principal é organizar o dia ou a semana do usuário, gerando uma lista de tarefas clara e acionável e redigindo e-mails de acompanhamento. Use o conhecimento anexado a este agente (documentos pilares) para obter o contexto pessoal do usuário. Use Gmail, Google Drive, Agenda e o CRM da organização (por exemplo, Salesforce) para reunir as informações de trabalho relevantes.
+
+Resultado esperado
+Entregue uma lista de tarefas diárias estruturada e priorizada, junto com rascunhos de e-mails de acompanhamento, adaptados ao contexto pessoal do usuário.
+
+- Contexto pessoal: use 100% do conhecimento anexado a este agente (documentos pilares) para compreender quem é o usuário, como ele é e no que acredita. Esse contexto deve guiar o tom das suas respostas e a priorização das tarefas.
+- Limite de tempo estrito: busque, leia e extraia informações (e-mails, documentos de trabalho, atualizações) somente dos últimos 7 dias corridos. Ignore qualquer informação anterior a esse período.
+- Regras de busca para agenda e reuniões:
+  · Busca bidirecional: busque tanto e-mails recebidos quanto convites criados pelo usuário (from:me), para capturar as reuniões que ele organizou.
+  · Cruzamento com o CRM: extraia a lista de clientes ou contas ativas do CRM (usando o conector habilitado no agente) e busque no Gmail especificamente pelo domínio de cada cliente (ex.: @cliente.com.br, @orgao.gov.br).
+  · Informação mais recente: se houver divergência entre as fontes, a informação com data e hora mais recentes é a fonte da verdade.
+- Lista de tarefas: analise as informações coletadas para identificar tarefas pendentes, reuniões, compromissos e ações necessárias. Crie uma lista de tarefas diárias estruturada e priorizada.
+- E-mails de acompanhamento: identifique as situações que pedem um follow-up e redija os rascunhos no tom adequado ao contexto pessoal do usuário.
+- Apresentação: apresente ao usuário a lista de tarefas e os rascunhos de e-mails de forma clara e organizada.</div>
+     <p style="font-size:14px;color:var(--muted)">Se a sua organização não usa CRM, apague as linhas sobre o CRM. O agente segue funcionando com Gmail, Drive e Agenda.</p></div></div>
+    <div class="step"><div class="n">4</div><div><h5>Insira as instruções no Builder</h5><p>Depois que você colar o prompt e o agente começar a ser construído, abre-se um painel à direita com três abas: <b>Fluxo</b>, <b>Programação</b> e <b>Visualização</b>. Na aba Fluxo, em <b>Instruções</b>, deve ficar salvo tudo o que você definiu no prompt: regras, limites e focos.</p></div></div>
+    <div class="step"><div class="n">5</div><div><h5>Habilite os conectores</h5><p>Abaixo da caixa de texto, clique no ícone de conectores e ative <b>Habilitar todos os conectores</b>. Ative os mais usados: Gmail, Google Drive, Agenda, Chat e Pesquisa Google, além do seu CRM ou de outros sistemas, se estiverem disponíveis no seu perfil.</p>
+     <div class="gold"><b>Regra de ouro:</b> confira sempre se os conectores funcionam. Se um conector estiver quebrado ou não trouxer bem a informação, o agente vai alucinar, por mais perfeitas que sejam as instruções.</div></div></div>
+    <div class="step"><div class="n">6</div><div><h5>Suba o seu Second Brain</h5><p>Na seção <b>Conhecimento</b>, carregue direto do Drive os documentos fixos: <b>Quem sou eu?</b> e <b>Como eu sou?</b></p>
+     <div class="box m"><b class="t">Atenção ao documento 3</b>Como o "No que eu acredito?" é um arquivo vivo, não o suba aqui. Instrua o agente a usar o conector do Drive para ler a versão mais recente desse documento a cada execução.</div></div></div>
+    <div class="step"><div class="n">7</div><div><h5>Teste e ajuste</h5><p>Na aba <b>Visualização</b>, faça uma interação rápida com o agente (por exemplo, peça um resumo das suas reuniões) e confira se ele está usando o seu contexto corretamente.</p></div></div>
+    <div class="step"><div class="n">8</div><div><h5>Salve o seu agente</h5><p>Quando tudo funcionar como esperado, clique em <b>Criar</b>, no canto superior direito. O agente fica salvo e ativo na sua biblioteca de agentes.</p></div></div>
+    <div class="step"><div class="n">9</div><div><h5>Automatize (opcional)</h5><p>Na aba <b>Programação</b>, configure o agente para rodar automaticamente em determinados horários e entregar os relatórios sem que você precise pedir.</p></div></div>
+
+    <h4>Material de apoio (em inglês)</h4>
+    <div class="links">
+     <a href="https://www.youtube.com/watch?v=xfS_QTabOfQ" target="_blank" rel="noopener">How to create an AI Agent in Gemini Enterprise →</a>
+     <a href="https://www.youtube.com/watch?v=uDr0xdA_E_A" target="_blank" rel="noopener">How to Use Agentic AI for Business with Gemini Enterprise →</a>
+     <a href="https://www.youtube.com/watch?v=ODrHVsTBCpQ" target="_blank" rel="noopener">Gemini Enterprise Tutorial: Build a Strategic Sales Brief Agent →</a>
+    </div>
+    <div class="contact-slot"></div>
+   </div>
+  </section>
+ </div>
+</div>
+
+<template id="contactTpl">
+ <div class="contact">
+  <div>
+   <h3>Do guia à prática: veja como isso funciona na sua operação</h3>
+   <p>Agende uma sessão privada com o time da Xertica.ai ou fale direto com o Alex Araújo, pelo canal que preferir.</p>
+   <div class="acts">
+    <a class="btn w" href="https://calendar.app.google/Qz2YFxi9NypwgLU87" target="_blank" rel="noopener" data-acao="Clique: Agendar sessão (Alex)">Agendar uma sessão privada</a>
+    <a class="btn t" href="https://wa.me/5511957909341?text=Ol%C3%A1%2C%20Alex%21%20Acessei%20os%20guias%20do%20workshop%20AI%20Superpowers%20e%20gostaria%20de%20conversar%20sobre%20o%20Gemini%20Enterprise." target="_blank" rel="noopener" data-acao="Clique: WhatsApp (Alex)">Conversar no WhatsApp</a>
+   </div>
+  </div>
+  <div class="person"><img src="data:image/jpeg;base64,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" alt="Foto de Alex Araújo" width="118" height="118"><b>Alex Araújo</b><span>Xertica.ai Brasil</span><a href="https://wa.me/5511957909341?text=Ol%C3%A1%2C%20Alex%21%20Acessei%20os%20guias%20do%20workshop%20AI%20Superpowers%20e%20gostaria%20de%20conversar%20sobre%20o%20Gemini%20Enterprise." target="_blank" rel="noopener" data-acao="Clique: WhatsApp (Alex)">+55 11 95790-9341</a></div>
+ </div>
+</template>
+
+<footer><div class="wrap"><div class="logos"><img src="https://email-editor-production.s3.amazonaws.com/images/575975/2-logo-xertica.png" alt="Xertica.ai"><div class="sep"></div><img src="https://email-editor-production.s3.amazonaws.com/images/575975/3-logo-google.png" alt="Google Cloud"></div><small>AI Superpowers Brasil · © 2026 Xertica.ai · <a href="https://www.xertica.ai/privacy-policy" target="_blank" rel="noopener">Política de privacidade</a></small></div></footer>
+<div class="toast" id="toast">Prompt copiado</div>
+
+<script>
+var FORM_URL='https://docs.google.com/forms/d/e/1FAIpQLSe5MqED1LuqsvihubQU7Ha4XdULU0N-YURTwCJcrqhjsAOZ-w/formResponse',F_NOME='entry.908441022',F_EMAIL='entry.1113873795',F_ACAO='entry.1225413619',F_ORIGEM='entry.820673435';
+var WP_URL='https://drive.google.com/uc?export=download&id=1PKz2qZbqALsQhM3p_pbgJN8pBYPvxPPR',REC_URL='';
+var K='ais_pos_user',user=null,origem='direto';
+try{user=JSON.parse(localStorage.getItem(K)||'null')}catch(e){}
+(function(){var q=new URLSearchParams(location.search),s=q.get('utm_source'),m=q.get('utm_medium'),c=q.get('utm_content');
+ if(s){origem=[s,m,c].filter(Boolean).join(' / ')}
+ else if(document.referrer&&document.referrer.indexOf(location.hostname)<0){try{origem='site: '+new URL(document.referrer).hostname}catch(e){}}})();
+function log(acao){if(!user||FORM_URL.indexOf('http')!==0)return;var b=new URLSearchParams();b.append(F_NOME,user.nome);b.append(F_EMAIL,user.email);b.append(F_ACAO,acao);b.append(F_ORIGEM,origem);
+ try{fetch(FORM_URL,{method:'POST',mode:'no-cors',body:b,keepalive:true})}catch(e){}}
+function show(){document.getElementById('gate').style.display='none';document.getElementById('app').style.display='block';
+ var w=document.getElementById('who');w.style.display='block';var first=(user.nome||'').trim().split(/\s+/)[0];document.getElementById('whoName').textContent=first;
+ document.getElementById('helloT').textContent=first?first+', tudo pronto para você começar':'Tudo pronto para você começar';}
+document.getElementById('wpBtn').href=WP_URL;
+if(REC_URL){document.getElementById('recTxt').innerHTML='<a href="'+REC_URL+'" target="_blank" rel="noopener" data-acao="Clique: Gravação" style="font-weight:700;color:var(--teal)">Assistir à gravação completa →</a>'}
+document.querySelectorAll('.contact-slot').forEach(function(s){s.appendChild(document.getElementById('contactTpl').content.cloneNode(true))});
+if(user&&user.email){show();log('Retorno')}
+document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var b=e.target.querySelector('button');b.disabled=true;b.textContent='Liberando acesso...';
+ user={nome:document.getElementById('nome').value.trim(),email:document.getElementById('email').value.trim().toLowerCase()};
+ try{localStorage.setItem(K,JSON.stringify(user))}catch(e){}
+ log('Cadastro');show();window.scrollTo(0,0);});
+function tab(id){document.querySelectorAll('.tab').forEach(function(t){t.setAttribute('aria-selected',t.dataset.tab===id)});
+ document.querySelectorAll('.pane').forEach(function(p){p.classList.toggle('on',p.id==='p-'+id)});}
+document.querySelectorAll('.tab').forEach(function(t){t.addEventListener('click',function(){tab(t.dataset.tab);log('Aba: '+(t.dataset.tab==='sb'?'Second Brain':'Chief of Staff'));document.getElementById('guia').scrollIntoView({behavior:'smooth'})})});
+document.addEventListener('click',function(e){var a=e.target.closest('[data-acao]');if(a)log(a.dataset.acao);
+ var g=e.target.closest('[data-goto]');if(g){e.preventDefault();tab(g.dataset.goto);log('Aba: Chief of Staff');document.getElementById('guia').scrollIntoView({behavior:'smooth'})}
+ var c=e.target.closest('.copy');if(c){var el=document.getElementById(c.dataset.copy).cloneNode(true);el.querySelectorAll('.copy,.lbl').forEach(function(x){x.remove()});var txt=el.textContent.trim();
+  var done=function(){var t=document.getElementById('toast');t.classList.add('on');c.textContent='Copiado';setTimeout(function(){t.classList.remove('on');c.textContent='Copiar'},1600)};
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(done,function(){fb(txt);done()})}else{fb(txt);done()}}});
+function fb(t){var x=document.createElement('textarea');x.value=t;document.body.appendChild(x);x.select();try{document.execCommand('copy')}catch(e){}x.remove()}
+</script>
+</body>
+</html>
